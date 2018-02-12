@@ -31,5 +31,11 @@ remove files from the staging area
 git reset file_name
 git reset (remove all files from the staging area)
 
+add files to the repository:
+git commit -m "comment line"
+
+check commits:
+git log
+
 
 
