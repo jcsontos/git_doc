@@ -37,5 +37,13 @@ git commit -m "comment line"
 check commits:
 git log
 
+clone a repository:
+git clone from_url local_dir
+
+info about the remote repo:
+git remote -v
+
+info about branches:
+git branch -a
 
 
