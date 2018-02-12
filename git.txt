@@ -46,4 +46,13 @@ git remote -v
 info about branches:
 git branch -a
 
+to publish local version to remote repo:
+git status
+git diff
+git add -A/add file_name
+git commit -m "info"
+git pull origin master (to pull changes made since last pull)
+git push origin master
+
+
 
