@@ -1,0 +1,35 @@
+
+setup:
+
+git config --global user.name "Jozsef Csontos"
+git config --global user.email "jozsef.csontos@ericsson.com"
+to check the config: git config --list
+
+help:
+
+git help config
+git config --help
+
+initialize a local git project:
+
+git init
+(it creates a .git directory with all the files required;
+to stop tracking the project just remove the .git directory)
+
+to remove individual files from git's scope:
+touch .gitignore (to ignore git tracking for specific files put the file names into this file)
+
+working area <-> staging area <-> git repository
+overview status:
+git status
+
+add files to the staging area:
+git add file_names
+git add -A (all modified files are added to the staging area)
+
+remove files from the staging area
+git reset file_name
+git reset (remove all files from the staging area)
+
+
+
