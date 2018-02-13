@@ -1,4 +1,6 @@
 
+This cheat sheet is written by Jozsef Csontos and it is based on the excellent introduction of Corey Schafer, https://www.youtube.com/watch?v=HVsySz-h9r4
+
 setup:
 
 git config --global user.name "Jozsef Csontos"
@@ -77,6 +79,18 @@ git branch --merged (merged branches?)
 git merge new-branch-name (at this point you merge the two branches in the local repo)
 git push origin master (push your merged master branch to the remote repo)
 
+deleting a branch:
+git branch --merged (to know about the branches merged)
+git branch -d branch-name-to-be-deleted (delete the branch from local repo)
+git branch -a (to view all the branches, both local and remote)
+git push origin --delete branch-name-to-be-deleted (also delete from the remote repo)
+git branch --merged
 
+If you ever find that you accidentally left something out of your last commit, be it a file or an extra change to a file that you just committed, don't worry. All you have to do is stage the extra changes like you would for a normal commit without editing the commit message:
 
+git add your_file_modified
+git commit --amend --no-edit
+git push origin HEAD:refs/for/e2eprototype
+
+Branches are used to create another line of development. By default, Git has a master branch, which is same as trunk in Subversion. Usually, a branch is created to work on a new feature. Once the feature is completed, it is merged back with the master branch and we delete the branch. Every branch is referenced by HEAD, which points to the latest commit in the branch. Whenever you make a commit, HEAD is updated with the latest commit.
 
