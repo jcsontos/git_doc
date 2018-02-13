@@ -1,4 +1,6 @@
 
+This cheat sheet is written by Jozsef Csontos and it is based on the excellent introduction of Corey Schafer, https://www.youtube.com/watch?v=HVsySz-h9r4
+
 setup:
 
 git config --global user.name "Jozsef Csontos"
@@ -77,6 +79,12 @@ git branch --merged (merged branches?)
 git merge new-branch-name (at this point you merge the two branches in the local repo)
 git push origin master (push your merged master branch to the remote repo)
 
+deleting a branch:
+git branch --merged (to know about the branches merged)
+git branch -d branch-name-to-be-deleted (delete the branch from local repo)
+git branch -a (to view all the branches, both local and remote)
+git push origin --delete branch-name-to-be-deleted (also delete from the remote repo)
+git branch --merged
 
 
 
