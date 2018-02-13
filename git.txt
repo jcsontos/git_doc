@@ -70,6 +70,12 @@ to commit the branch to remote repo and associate the local and remote branches:
 git push -u origin new-branch-name
 "git push" is enough from this point
 
+merging branches when you're done with new features:
+git checkout master (select the master branch on local repo)
+git pull origin master (check for remote changes)
+git branch --merged (merged branches?)
+git merge new-branch-name (at this point you merge the two branches in the local repo)
+git push origin master (push your merged master branch to the remote repo)
 
 
 
