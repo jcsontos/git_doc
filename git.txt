@@ -54,5 +54,20 @@ git commit -m "info"
 git pull origin master (to pull changes made since last pull)
 git push origin master
 
+resolving merge conflict using the command line and vim:
+git status
+open the file in vim and look for conflict markers: <<<<<<<,  =======, >>>>>>>
+keep the changes you want then remove the markers
+git add .
+git commit -m "resolved merge conflict..."
+git push origin master
+
+create a branch for a new feature:
+git branch new-branch-name
+git checkout new-branch-name
+
+to commit the branch to remote repo and associate the local and remote branches:
+git push -u origin new-branch-name
+
 
 
