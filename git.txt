@@ -68,6 +68,9 @@ git checkout new-branch-name
 
 to commit the branch to remote repo and associate the local and remote branches:
 git push -u origin new-branch-name
+"git push" is enough from this point
+
+
 
 
 
