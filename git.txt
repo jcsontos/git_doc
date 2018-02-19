@@ -94,3 +94,13 @@ git push origin HEAD:refs/for/e2eprototype
 
 Branches are used to create another line of development. By default, Git has a master branch, which is same as trunk in Subversion. Usually, a branch is created to work on a new feature. Once the feature is completed, it is merged back with the master branch and we delete the branch. Every branch is referenced by HEAD, which points to the latest commit in the branch. Whenever you make a commit, HEAD is updated with the latest commit.
 
+
+In the simplest terms, git pull does a git fetch followed by a git merge
+
+Ignore local files from git tracking (a scenario when your local config files are different the those put on the remote repo):
+Patterns which are specific to a particular repository but which do not need to be shared with other related repositories (e.g., auxiliary files that live inside the repository but are specific to one user's workflow) should go into the $GIT_DIR/info/exclude file.
+after editing the exclude file and you arleady have unstaged changes in the files listed execute the following,
+git update-index --assume-unchanged [<file>...]
+
+forget local modifications:
+git reset --hard origin/master
