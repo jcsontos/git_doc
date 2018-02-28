@@ -20,12 +20,19 @@ git help config
 git config --help
 
 Working with git
+<<<<<<< HEAD
 the concept of "working area <-> staging area <-> local repository <-> git (remote) repository" is substantial.
 (for a brief summary see https://www.youtube.com/watch?v=3a2x1iJFJWc)
 working area: your local directory where you modify your files
 staging area: it contains those files which are candidates for a commit to the repository (note: modified files present in the working are but not in the staging area won't be commited to the local and then to the git repository)
 your local repository: it contains your commited changes (these are the candidates for the remote repo, this is where your "HEAD" is)
 git repository: usually a remote directory where every developer of the project can see your commited/pushed changes
+=======
+the concept of "working area <-> staging area <-> git repository" is substantial
+working area: your local directory where you modify your files
+staging area: it contains those files which are candidates for a commit to the repository (note: modified files present in the working are but not in the staging area won't be commited to the repository)
+git repository: usually a remote directory where every developer of the project can see your commited changes
+>>>>>>> 7e555952902bef3b0f24a1f653dc269f8036590e
 
 initialize a local git project:
 git init
