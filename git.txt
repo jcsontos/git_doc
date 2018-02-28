@@ -20,6 +20,7 @@ git help config
 git config --help
 
 Working with git
+
 the concept of "working area <-> staging area <-> local repository <-> git (remote) repository" is substantial.
 (for a brief summary see https://www.youtube.com/watch?v=3a2x1iJFJWc)
 working area: your local directory where you modify your files
