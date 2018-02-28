@@ -1,28 +1,40 @@
 
-This cheat sheet is written by Jozsef Csontos and it is based on the excellent introduction of Corey Schafer, https://www.youtube.com/watch?v=HVsySz-h9r4
+This cheat sheet is written by Jozsef Csontos and most of it is based on the excellent introduction of Corey Schafer, https://www.youtube.com/watch?v=HVsySz-h9r4
 
-setup:
+Install:
 
-git config --global user.name "Jozsef Csontos"
-git config --global user.email "jozsef.csontos@ericsson.com"
+sudo apt-get update
+sudo apt-get install git
+
+Setup:
+
+git config --global user.name "Firstname Lastname"
+git config --global user.email "your@emailaddre.ss"
 to check the config: git config --list
 
-help:
+Help:
 
+git git_command --help, or git help git_command 
+for example, 
 git help config
 git config --help
 
+Working with git
+the concept of "working area <-> staging area <-> git repository" is substantial
+working area: your local directory where you modify your files
+staging area: it contains those files which are candidates for a commit to the repository (note: modified files present in the working are but not in the staging area won't be commited to the repository)
+git repository: usually a remote directory where every developer of the project can see your commited changes
+
 initialize a local git project:
-
 git init
-(it creates a .git directory with all the files required;
-to stop tracking the project just remove the .git directory)
+(it creates a .git directory with all the files required; to stop tracking a project just remove the .git directory)
 
-to remove individual files from git's scope:
-touch .gitignore (to ignore git tracking for specific files put the file names into this file)
+there are two options to remove individual files from git's scope:
+a) if some files are not needed in the repo, then you can edit .gitignore (to ignore git tracking for specific files put the file names into this file)
+b) another scenario is when, for example, your local config files are different from those sitting on the remote repo (e.g., auxiliary files that live inside the repository but are specific to one user's workflow) should go into the $GIT_DIR/info/exclude file (if you already have unstaged changes in the files listed execute the following, git update-index --assume-unchanged file_names
 
-working area <-> staging area <-> git repository
-overview status:
+
+Overview status:
 git status
 
 add files to the staging area:
@@ -45,9 +57,6 @@ git clone from_url local_dir
 info about the remote repo:
 git remote -v
 
-info about branches:
-git branch -a
-
 to publish local version to remote repo:
 git status
 git diff
@@ -63,6 +72,11 @@ keep the changes you want then remove the markers
 git add .
 git commit -m "resolved merge conflict..."
 git push origin master
+
+Note: branches are used to create another line of development. By default, Git has a master branch. Usually, a branch is created to work on a new feature. Once the feature is completed, it is merged back with the master branch and we can delete the branch (most people keep two branches master and development). Every branch is referenced by HEAD, which points to the latest commit in the branch. Whenever you make a commit, HEAD is updated with the latest commit.
+
+info about branches:
+git branch -a
 
 create a branch for a new feature:
 git branch new-branch-name
@@ -86,21 +100,13 @@ git branch -a (to view all the branches, both local and remote)
 git push origin --delete branch-name-to-be-deleted (also delete from the remote repo)
 git branch --merged
 
-If you ever find that you accidentally left something out of your last commit, be it a file or an extra change to a file that you just committed, don't worry. All you have to do is stage the extra changes like you would for a normal commit without editing the commit message:
+If you ever find that you accidentally left something out of your last commit, be it a file or an extra change to a file that you just committed, don't worry. All you have to do is stage the extra changes like you would for a normal commit without editing the original commit message:
 
 git add your_file_modified
 git commit --amend --no-edit
-git push origin HEAD:refs/for/e2eprototype
+git push origin HEAD:refs/for/branch_name
 
-Branches are used to create another line of development. By default, Git has a master branch, which is same as trunk in Subversion. Usually, a branch is created to work on a new feature. Once the feature is completed, it is merged back with the master branch and we delete the branch. Every branch is referenced by HEAD, which points to the latest commit in the branch. Whenever you make a commit, HEAD is updated with the latest commit.
-
-
-In the simplest terms, git pull does a git fetch followed by a git merge
-
-Ignore local files from git tracking (a scenario when your local config files are different the those put on the remote repo):
-Patterns which are specific to a particular repository but which do not need to be shared with other related repositories (e.g., auxiliary files that live inside the repository but are specific to one user's workflow) should go into the $GIT_DIR/info/exclude file.
-after editing the exclude file and you arleady have unstaged changes in the files listed execute the following,
-git update-index --assume-unchanged [<file>...]
-
-forget local modifications:
-git reset --hard origin/master
+If you get a message after invoking git status: "Your branch is ahead of 'origin/master' by 1 commit.", and you want to forget your local modifications:
+git reset --hard HEAD^ 
+(will discard your changes, and put back the HEAD to the last commit)
+note: git pull does a git fetch followed by a git merge
